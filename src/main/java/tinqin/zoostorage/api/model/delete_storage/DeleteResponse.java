@@ -1,4 +1,4 @@
-package tinqin.zoostorage.api.model.import_items.output;
+package tinqin.zoostorage.api.model.delete_storage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,8 +8,6 @@ import tinqin.zoostorage.api.operations.OperationResult;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImportResponse implements OperationResult {
+public class DeleteResponse implements OperationResult {
     private String storageId;
-    private String itemId;
-    private Integer quantity;
 }

@@ -4,8 +4,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import tinqin.zoostorage.api.model.add_storage.AddStorage;
 import tinqin.zoostorage.persistance.data.Storage;
-import tinqin.zoostorage.api.model.add_storage.input.AddStorageRequest;
-import tinqin.zoostorage.api.model.add_storage.output.AddStorageResponse;
+import tinqin.zoostorage.api.model.add_storage.AddStorageRequest;
+import tinqin.zoostorage.api.model.add_storage.AddStorageResponse;
 import tinqin.zoostorage.persistance.repository.StorageRepository;
 
 @Service

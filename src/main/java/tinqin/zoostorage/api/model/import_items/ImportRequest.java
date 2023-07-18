@@ -1,4 +1,4 @@
-package tinqin.zoostorage.api.model.import_items.input;
+package tinqin.zoostorage.api.model.import_items;
 
 
 import lombok.AllArgsConstructor;

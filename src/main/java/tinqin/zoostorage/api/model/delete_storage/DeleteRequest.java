@@ -1,4 +1,4 @@
-package tinqin.zoostorage.api.model.add_storage.input;
+package tinqin.zoostorage.api.model.delete_storage;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,6 @@ import tinqin.zoostorage.api.operations.OperationInput;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddStorageRequest implements OperationInput {
+public class DeleteRequest implements OperationInput {
     private String storageId;
-    private String itemId;
-    private Integer quantity;
-    private Double price;
 }

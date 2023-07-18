@@ -1,14 +1,14 @@
-package tinqin.zoostorage.api.model.change_price.output;
+package tinqin.zoostorage.api.model.change_price;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import tinqin.zoostorage.api.operations.OperationResult;
+import tinqin.zoostorage.api.operations.OperationInput;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChangePriceResponse implements OperationResult {
+public class ChangePriceRequest implements OperationInput {
     private String itemId;
     private Double price;
 }

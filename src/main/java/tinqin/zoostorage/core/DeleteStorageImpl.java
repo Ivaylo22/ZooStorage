@@ -2,8 +2,8 @@ package tinqin.zoostorage.core;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import tinqin.zoostorage.api.model.delete_storage.input.DeleteRequest;
-import tinqin.zoostorage.api.model.delete_storage.output.DeleteResponse;
+import tinqin.zoostorage.api.model.delete_storage.DeleteRequest;
+import tinqin.zoostorage.api.model.delete_storage.DeleteResponse;
 import tinqin.zoostorage.api.model.delete_storage.DeleteStorage;
 import tinqin.zoostorage.persistance.data.Storage;
 import tinqin.zoostorage.persistance.repository.StorageRepository;

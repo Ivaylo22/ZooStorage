@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tinqin.zoostorage.api.model.add_storage.AddStorage;
-import tinqin.zoostorage.api.model.add_storage.input.AddStorageRequest;
-import tinqin.zoostorage.api.model.add_storage.output.AddStorageResponse;
+import tinqin.zoostorage.api.model.add_storage.AddStorageRequest;
+import tinqin.zoostorage.api.model.add_storage.AddStorageResponse;
 import tinqin.zoostorage.api.model.change_price.ChangePrice;
-import tinqin.zoostorage.api.model.change_price.input.ChangePriceRequest;
-import tinqin.zoostorage.api.model.change_price.output.ChangePriceResponse;
+import tinqin.zoostorage.api.model.change_price.ChangePriceRequest;
+import tinqin.zoostorage.api.model.change_price.ChangePriceResponse;
 import tinqin.zoostorage.api.model.delete_storage.DeleteStorage;
-import tinqin.zoostorage.api.model.delete_storage.input.DeleteRequest;
-import tinqin.zoostorage.api.model.delete_storage.output.DeleteResponse;
+import tinqin.zoostorage.api.model.delete_storage.DeleteRequest;
+import tinqin.zoostorage.api.model.delete_storage.DeleteResponse;
 import tinqin.zoostorage.api.model.export_items.ExportItems;
-import tinqin.zoostorage.api.model.export_items.input.ExportRequest;
-import tinqin.zoostorage.api.model.export_items.output.ExportResponse;
+import tinqin.zoostorage.api.model.export_items.ExportRequest;
+import tinqin.zoostorage.api.model.export_items.ExportResponse;
 import tinqin.zoostorage.api.model.import_items.ImportItems;
-import tinqin.zoostorage.api.model.import_items.input.ImportRequest;
-import tinqin.zoostorage.api.model.import_items.output.ImportResponse;
+import tinqin.zoostorage.api.model.import_items.ImportRequest;
+import tinqin.zoostorage.api.model.import_items.ImportResponse;
 
 
 @RestController

@@ -1,4 +1,4 @@
-package tinqin.zoostorage.api.model.export_items.output;
+package tinqin.zoostorage.api.model.export_items;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

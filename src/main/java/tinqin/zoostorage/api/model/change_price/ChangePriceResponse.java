@@ -1,4 +1,4 @@
-package tinqin.zoostorage.api.model.delete_storage.output;
+package tinqin.zoostorage.api.model.change_price;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +8,7 @@ import tinqin.zoostorage.api.operations.OperationResult;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeleteResponse implements OperationResult {
-    private String storageId;
+public class ChangePriceResponse implements OperationResult {
+    private String itemId;
+    private Double price;
 }

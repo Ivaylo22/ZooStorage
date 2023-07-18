@@ -2,8 +2,8 @@ package tinqin.zoostorage.core;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import tinqin.zoostorage.api.model.export_items.input.ExportRequest;
-import tinqin.zoostorage.api.model.export_items.output.ExportResponse;
+import tinqin.zoostorage.api.model.export_items.ExportRequest;
+import tinqin.zoostorage.api.model.export_items.ExportResponse;
 import tinqin.zoostorage.api.model.export_items.ExportItems;
 import tinqin.zoostorage.persistance.data.Storage;
 import tinqin.zoostorage.persistance.repository.StorageRepository;

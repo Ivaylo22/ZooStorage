@@ -2,8 +2,8 @@ package tinqin.zoostorage.core;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import tinqin.zoostorage.api.model.change_price.input.ChangePriceRequest;
-import tinqin.zoostorage.api.model.change_price.output.ChangePriceResponse;
+import tinqin.zoostorage.api.model.change_price.ChangePriceRequest;
+import tinqin.zoostorage.api.model.change_price.ChangePriceResponse;
 import tinqin.zoostorage.api.model.change_price.ChangePrice;
 import tinqin.zoostorage.persistance.data.Storage;
 import tinqin.zoostorage.persistance.repository.StorageRepository;
