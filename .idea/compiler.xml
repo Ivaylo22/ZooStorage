@@ -7,16 +7,33 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ZooStorage" />
+        <module name="rest" />
+        <module name="core" />
+        <module name="persistence" />
+        <module name="api" />
+        <module name="domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api" target="17" />
+      <module name="core" target="17" />
+      <module name="domain" target="17" />
+      <module name="persistance" target="17" />
+      <module name="persistence" target="17" />
+      <module name="rest" target="17" />
+      <module name="storage" target="17" />
       <module name="ZooStorage" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ZooStorage" options="-parameters" />
+      <module name="ZooStorage" options="" />
+      <module name="api" options="-parameters" />
+      <module name="core" options="-parameters" />
+      <module name="domain" options="-parameters" />
+      <module name="persistence" options="-parameters" />
+      <module name="rest" options="-parameters" />
+      <module name="storage" options="" />
     </option>
   </component>
 </project>
