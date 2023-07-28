@@ -1,6 +1,8 @@
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\ExportItemsImpl.java
-D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\GetQuantityByIdImpl.java
+D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\GetStorageImpl.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\ChangePriceImpl.java
+D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\GetInfoByIdImpl.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\AddStorageImpl.java
+D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\CheckStorageByItemImpl.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\DeleteStorageImpl.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\core\src\main\java\tinqin\zoostorage\ImportItemsImpl.java

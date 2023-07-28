@@ -12,6 +12,7 @@
         <module name="persistence" />
         <module name="api" />
         <module name="domain" />
+        <module name="restexport" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="persistance" target="17" />
       <module name="persistence" target="17" />
       <module name="rest" target="17" />
+      <module name="restexport" target="17" />
       <module name="storage" target="17" />
       <module name="ZooStorage" target="17" />
     </bytecodeTargetLevel>
@@ -33,6 +35,7 @@
       <module name="domain" options="-parameters" />
       <module name="persistence" options="-parameters" />
       <module name="rest" options="-parameters" />
+      <module name="restexport" options="-parameters" />
       <module name="storage" options="" />
     </option>
   </component>

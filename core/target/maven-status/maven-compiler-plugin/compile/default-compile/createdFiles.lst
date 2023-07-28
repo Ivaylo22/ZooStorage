@@ -1,6 +1,8 @@
 tinqin\zoostorage\AddStorageImpl.class
-tinqin\zoostorage\DeleteStorageImpl.class
-tinqin\zoostorage\GetQuantityByIdImpl.class
 tinqin\zoostorage\ChangePriceImpl.class
+tinqin\zoostorage\CheckStorageByItemImpl.class
+tinqin\zoostorage\GetInfoByIdImpl.class
 tinqin\zoostorage\ImportItemsImpl.class
 tinqin\zoostorage\ExportItemsImpl.class
+tinqin\zoostorage\DeleteStorageImpl.class
+tinqin\zoostorage\GetStorageImpl.class

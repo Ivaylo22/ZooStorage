@@ -11,7 +11,7 @@ import tinqin.zoostore.ZooStoreRestClient;
 
 @Configuration
 @RequiredArgsConstructor
-public class ZooStoreFactory {
+public class RestExportClientFactory {
     @Bean
     public ZooStoreRestClient getMyRestExportClient() {
         final ObjectMapper objectMapper = new ObjectMapper();

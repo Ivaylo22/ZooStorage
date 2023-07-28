@@ -11,8 +11,8 @@
     </parent>
 
     <properties>
-        <revision>0.0.8-SNAPSHOT</revision>
-        <zoostore.version>0.0.8-SNAPSHOT</zoostore.version>
+        <revision>0.1.8-SNAPSHOT</revision>
+        <zoostore.version>0.1.8-SNAPSHOT</zoostore.version>
         <java.version>17</java.version>
     </properties>
 
@@ -73,6 +73,7 @@
         <module>domain</module>
         <module>persistence</module>
         <module>rest</module>
+        <module>restexport</module>
     </modules>
 
     <build>

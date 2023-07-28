@@ -1,5 +1,6 @@
 package tinqin.zoostorage.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tinqin.zoostorage.model.addstorage.AddStorage;
@@ -8,15 +9,21 @@ import tinqin.zoostorage.model.addstorage.AddStorageResponse;
 import tinqin.zoostorage.model.changeprice.ChangePrice;
 import tinqin.zoostorage.model.changeprice.ChangePriceRequest;
 import tinqin.zoostorage.model.changeprice.ChangePriceResponse;
+import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItem;
+import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemRequest;
+import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemResponse;
 import tinqin.zoostorage.model.deletestorage.DeleteRequest;
 import tinqin.zoostorage.model.deletestorage.DeleteResponse;
 import tinqin.zoostorage.model.deletestorage.DeleteStorage;
 import tinqin.zoostorage.model.exportitems.ExportItems;
 import tinqin.zoostorage.model.exportitems.ExportRequest;
 import tinqin.zoostorage.model.exportitems.ExportResponse;
-import tinqin.zoostorage.model.getquantitybyid.GetQuantityById;
-import tinqin.zoostorage.model.getquantitybyid.GetQuantityByIdRequest;
-import tinqin.zoostorage.model.getquantitybyid.GetQuantityByIdResponse;
+import tinqin.zoostorage.model.getinfobyid.GetInfoById;
+import tinqin.zoostorage.model.getinfobyid.GetInfoByIdRequest;
+import tinqin.zoostorage.model.getinfobyid.GetInfoByIdResponse;
+import tinqin.zoostorage.model.getstorage.GetStorage;
+import tinqin.zoostorage.model.getstorage.GetStorageRequest;
+import tinqin.zoostorage.model.getstorage.GetStorageResponse;
 import tinqin.zoostorage.model.importitems.ImportItems;
 import tinqin.zoostorage.model.importitems.ImportRequest;
 import tinqin.zoostorage.model.importitems.ImportResponse;
@@ -25,29 +32,48 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/storage")
+@RequiredArgsConstructor
 public class StorageController {
     private final AddStorage addStorage;
     private final ChangePrice changePrice;
     private final DeleteStorage deleteStorage;
     private final ExportItems exportItems;
     private final ImportItems importItems;
-    private final GetQuantityById getQuantity;
+    private final GetInfoById getQuantity;
+    private final GetStorage getStorage;
+    private final GetInfoById getInfoById;
+    private final CheckStorageByItem checkStorageByItem;
 
-    public StorageController(AddStorage addStorage, ChangePrice changePrice, DeleteStorage deleteStorage, ExportItems exportItems, ImportItems importItems, GetQuantityById getQuantity) {
-        this.addStorage = addStorage;
-        this.changePrice = changePrice;
-        this.deleteStorage = deleteStorage;
-        this.exportItems = exportItems;
-        this.importItems = importItems;
-        this.getQuantity = getQuantity;
+    @GetMapping("checkStorageByItem/{itemId}")
+    public ResponseEntity<CheckStorageByItemResponse> checkStorageByItemId(@PathVariable UUID itemId) {
+        CheckStorageByItemRequest request = new CheckStorageByItemRequest(itemId);
+        CheckStorageByItemResponse response = checkStorageByItem.process(request);
+
+        return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/getInfo/{itemId}")
+    public ResponseEntity<GetInfoByIdResponse> getInfoByItemId(@PathVariable UUID itemId) {
+        GetInfoByIdRequest request = new GetInfoByIdRequest(itemId);
+        GetInfoByIdResponse response = getInfoById.process(request);
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{storageId}")
+    public ResponseEntity<GetStorageResponse> getStorage(@PathVariable UUID storageId) {
+        GetStorageRequest request = new GetStorageRequest();
+        request.setStorageId(storageId);
+        GetStorageResponse response = getStorage.process(request);
+
+        return ResponseEntity.ok(response);
+    }
 
     @GetMapping("/quantityById/{itemId}")
-    public ResponseEntity<GetQuantityByIdResponse> getQuantity(@PathVariable UUID itemId) {
-        GetQuantityByIdRequest request = new GetQuantityByIdRequest();
+    public ResponseEntity<GetInfoByIdResponse> getQuantity(@PathVariable UUID itemId) {
+        GetInfoByIdRequest request = new GetInfoByIdRequest();
         request.setItemId(itemId);
-        GetQuantityByIdResponse response = getQuantity.process(request);
+        GetInfoByIdResponse response = getQuantity.process(request);
 
         return ResponseEntity.ok(response);
     }

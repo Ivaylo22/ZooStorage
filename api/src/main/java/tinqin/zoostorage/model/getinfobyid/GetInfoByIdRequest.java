@@ -1,4 +1,4 @@
-package tinqin.zoostorage.model.getquantitybyid;
+package tinqin.zoostorage.model.getinfobyid;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +10,6 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetQuantityByIdRequest implements OperationInput {
+public class GetInfoByIdRequest implements OperationInput {
     private UUID itemId;
 }

@@ -25,8 +25,8 @@ public class AddStorageImpl implements AddStorage {
     public AddStorageResponse process(AddStorageRequest storageDto) {
         Storage storage = modelMapper.map(storageDto, Storage.class);
         storage.setItemId(storageDto.getItemId());
-        storage.setPrice(0.0);
-        storage.setQuantity(0);
+        storage.setPrice(storageDto.getPrice());
+        storage.setQuantity(storageDto.getQuantity());
 
         storageRepository.save(storage);
 
