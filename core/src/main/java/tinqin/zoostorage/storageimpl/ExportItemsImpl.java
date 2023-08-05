@@ -1,4 +1,4 @@
-package tinqin.zoostorage;
+package tinqin.zoostorage.storageimpl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

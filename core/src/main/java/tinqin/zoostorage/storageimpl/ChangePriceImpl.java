@@ -1,4 +1,4 @@
-package tinqin.zoostorage;
+package tinqin.zoostorage.storageimpl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,10 @@ public class ChangePriceImpl implements ChangePrice {
         storage.setPrice(input.getPrice());
 
         storageRepository.save(storage);
-
-        return new ChangePriceResponse(input.getItemId(), input.getPrice());
+        ChangePriceResponse response = ChangePriceResponse.builder()
+                .itemId(input.getItemId())
+                .price(input.getPrice())
+                .build();
+        return response;
     }
 }

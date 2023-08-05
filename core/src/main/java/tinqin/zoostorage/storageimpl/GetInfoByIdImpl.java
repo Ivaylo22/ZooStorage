@@ -1,4 +1,4 @@
-package tinqin.zoostorage;
+package tinqin.zoostorage.storageimpl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,12 +26,12 @@ public class GetInfoByIdImpl implements GetInfoById {
         Storage storage =  storageRepository
                 .findByItemId(itemId);
 
-        GetInfoByIdResponse response = new GetInfoByIdResponse();
-        response.setTitle(item.getTitle());
-        response.setDescription(item.getDescription());
-        response.setQuantity(storage.getQuantity());
-        response.setPrice(storage.getPrice());
-
-        return response;
+        return GetInfoByIdResponse
+        .builder()
+        .title(item.getTitle())
+        .description(item.getDescription())
+        .quantity(storage.getQuantity())
+        .price(storage.getPrice())
+        .build();
     }
 }

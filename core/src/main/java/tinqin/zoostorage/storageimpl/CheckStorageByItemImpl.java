@@ -1,4 +1,4 @@
-package tinqin.zoostorage;
+package tinqin.zoostorage.storageimpl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,11 @@ public class CheckStorageByItemImpl implements CheckStorageByItem {
         UUID itemId = input.getItemId();
 
         boolean isInStorage = storageRepository.existsByItemId(itemId);
+        CheckStorageByItemResponse response = CheckStorageByItemResponse
+                .builder()
+                .isInStorage(isInStorage)
+                .build();
 
-        return new CheckStorageByItemResponse(isInStorage);
+        return response;
     }
 }

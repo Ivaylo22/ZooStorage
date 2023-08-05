@@ -1,5 +1,3 @@
-tinqin\zoostorage\exceptions\ResourceNotFoundException.class
 tinqin\zoostorage\ZooStorageApplication.class
-tinqin\zoostorage\exceptions\GlobalExceptionHandler.class
 tinqin\zoostorage\util\AppConfiguration.class
 tinqin\zoostorage\controllers\StorageController.class

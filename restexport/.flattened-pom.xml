@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tinqin.storage</groupId>
   <artifactId>restexport</artifactId>
-  <version>0.1.8-SNAPSHOT</version>
+  <version>0.1.9-SNAPSHOT</version>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -15,13 +15,13 @@
     <dependency>
       <groupId>tinqin.storage</groupId>
       <artifactId>api</artifactId>
-      <version>0.1.8-SNAPSHOT</version>
+      <version>0.1.9-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>tinqin.storage</groupId>
       <artifactId>rest</artifactId>
-      <version>0.1.8-SNAPSHOT</version>
+      <version>0.1.9-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -58,6 +58,12 @@
       <groupId>org.modelmapper.extensions</groupId>
       <artifactId>modelmapper-spring</artifactId>
       <version>3.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model-builder</artifactId>
+      <version>3.6.3</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

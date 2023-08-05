@@ -1,4 +1,4 @@
-package tinqin.zoostorage;
+package tinqin.zoostorage.storageimpl;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -8,6 +8,7 @@ import tinqin.zoostorage.model.getstorage.GetStorage;
 import tinqin.zoostorage.model.getstorage.GetStorageRequest;
 import tinqin.zoostorage.model.getstorage.GetStorageResponse;
 import tinqin.zoostorage.repository.StorageRepository;
+import tinqin.zoostore.exception.ResourceNotFoundException;
 
 @Service
 @RequiredArgsConstructor
@@ -17,12 +18,14 @@ public class GetStorageImpl implements GetStorage {
 
     @Override
     public GetStorageResponse process(GetStorageRequest input) {
-        Storage storage = storageRepository.getStorageById(input.getStorageId());
-        GetStorageResponse response = new GetStorageResponse();
+        Storage storage = storageRepository
+                .findById(input.getStorageId())
+                .orElseThrow(() -> new ResourceNotFoundException("Item", input.getStorageId().toString()));
 
-        response.setItemId(storage.getItemId());
-        response.setStorageId(storage.getId());
-
-        return response;
+        return GetStorageResponse
+                .builder()
+                .itemId(storage.getItemId())
+                .storageId(storage.getId())
+                .build();
     }
 }

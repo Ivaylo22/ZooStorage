@@ -1,4 +1,4 @@
-package tinqin.zoostorage;
+package tinqin.zoostorage.storageimpl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -24,10 +24,6 @@ public class AddStorageImpl implements AddStorage {
     @Override
     public AddStorageResponse process(AddStorageRequest storageDto) {
         Storage storage = modelMapper.map(storageDto, Storage.class);
-        storage.setItemId(storageDto.getItemId());
-        storage.setPrice(storageDto.getPrice());
-        storage.setQuantity(storageDto.getQuantity());
-
         storageRepository.save(storage);
 
         return modelMapper.map(storage, AddStorageResponse.class);

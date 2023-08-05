@@ -5,6 +5,8 @@ import feign.Param;
 import feign.RequestLine;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tinqin.zoostorage.model.addsale.AddSaleRequest;
+import tinqin.zoostorage.model.addsale.AddSaleResponse;
 import tinqin.zoostorage.model.addstorage.AddStorageRequest;
 import tinqin.zoostorage.model.addstorage.AddStorageResponse;
 import tinqin.zoostorage.model.changeprice.ChangePriceRequest;
@@ -25,6 +27,9 @@ import java.util.UUID;
 
 @Headers({"Content-Type: application/json"})
 public interface ZooStorageRestClient {
+    @RequestLine("POST /storage/saleItems")
+    AddSaleResponse addSale(@Param AddSaleRequest request);
+
     @RequestLine("GET /storage/checkStorageByItem/{itemId}")
     CheckStorageByItemResponse checkStorageByItemId(@Param("itemId") UUID itemId);
 

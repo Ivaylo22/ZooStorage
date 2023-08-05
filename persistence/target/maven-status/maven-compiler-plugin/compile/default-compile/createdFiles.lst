@@ -1,2 +1,6 @@
-tinqin\zoostorage\data\Storage.class
+tinqin\zoostorage\data\Storage$StorageBuilder.class
 tinqin\zoostorage\repository\StorageRepository.class
+tinqin\zoostorage\data\Sale$SaleBuilder.class
+tinqin\zoostorage\data\Sale.class
+tinqin\zoostorage\repository\SaleRepository.class
+tinqin\zoostorage\data\Storage.class
