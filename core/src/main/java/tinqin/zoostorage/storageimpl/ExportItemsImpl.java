@@ -25,7 +25,7 @@ public class ExportItemsImpl implements ExportItems {
     public ExportResponse process(ExportRequest input) {
         Storage storage = storageRepository.getStorageByItemId(UUID.fromString(input.getItemId()));
         if(storage.getQuantity() - input.getQuantity() < 0) {
-            throw new IllegalArgumentException("Quantity cant be less than 0");
+             throw new IllegalArgumentException("Quantity cant be less than 0");
         }
         storage.setQuantity(storage.getQuantity() - input.getQuantity());
 

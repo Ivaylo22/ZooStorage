@@ -24,10 +24,6 @@ public class Sale {
     private UUID id;
 
     @Column(nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
-    private UUID itemId;
-
-    @Column(nullable = false)
     private Integer userId;
 
     @CreationTimestamp
@@ -36,5 +32,5 @@ public class Sale {
 
     private Double price;
 
-    private Integer quantity;
+    private Double savedMoney;
 }

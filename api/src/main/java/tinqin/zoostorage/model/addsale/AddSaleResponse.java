@@ -14,5 +14,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddSaleResponse implements OperationResult {
-    private List<UUID> saleIds;
+    private Double price;
+    private Double savedPrice;
 }

@@ -3,6 +3,7 @@ package tinqin.zoostorage.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,9 +54,10 @@ public class StorageController {
 
     @Operation(summary = "Sale items", description = "Create sale")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Sale created")
+            @ApiResponse(responseCode = "200", description = "Sale created"),
+            @ApiResponse(responseCode = "403", description = "Quantity cant be less than 0")
     })
-    @PostMapping("saleItems")
+    @PostMapping("/addSale")
     public ResponseEntity<AddSaleResponse> addSale(@RequestBody AddSaleRequest request) {
         AddSaleResponse response = addSale.process(request);
         return ResponseEntity.ok(response);
@@ -91,10 +93,8 @@ public class StorageController {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved"),
             @ApiResponse(responseCode = "401", description = "Storage not found"),
     })
-    @GetMapping("/{storageId}")
-    public ResponseEntity<GetStorageResponse> getStorage(@PathVariable UUID storageId) {
-        GetStorageRequest request = new GetStorageRequest();
-        request.setStorageId(storageId);
+    @PostMapping("/getStorage")
+    public ResponseEntity<GetStorageResponse> getStorage(@RequestBody GetStorageRequest request) {
         GetStorageResponse response = getStorage.process(request);
 
         return ResponseEntity.ok(response);

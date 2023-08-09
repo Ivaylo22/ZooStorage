@@ -24,36 +24,34 @@ public class AddSaleImpl implements AddSale {
     private final StorageRepository storageRepository;
     private final SaleRepository saleRepository;
     private final ExportItems exportItems;
-    
+
     @Override
     public AddSaleResponse process(AddSaleRequest input) {
         Integer userId = input.getUserId();
         Map<UUID, Integer> items = input.getItems();
-        List<Sale> sales = new ArrayList<>();
+        double actualPrice = items.entrySet().stream()
+                .mapToDouble(entry -> {
+                    UUID itemId = entry.getKey();
+                    Integer quantity = entry.getValue();
+                    Storage storage = storageRepository.getStorageByItemId(itemId);
+                    ExportRequest exportRequest = new ExportRequest(itemId.toString(), quantity);
+                    exportItems.process(exportRequest);
 
-        items.keySet().forEach(itemId -> {
-            Integer quantity = items.get(itemId);
-            Storage storage = storageRepository.getStorageByItemId(itemId);
-            ExportRequest exportRequest = new ExportRequest(itemId.toString(), quantity);
-            exportItems.process(exportRequest);
+                    return storage.getPrice() * quantity;
+                })
+                .sum();
 
-            final Sale sale = Sale.builder()
-                    .itemId(itemId)
-                    .price(storage.getPrice() * quantity)
-                    .quantity(quantity)
-                    .userId(userId)
-                    .build();
-            sales.add(sale);
-        });
+        Sale sale = Sale.builder()
+                .userId(userId)
+                .price(actualPrice - input.getSavedMoney())
+                .savedMoney(input.getSavedMoney())
+                .build();
 
-        saleRepository.saveAll(sales);
-        List<UUID> saleIds = sales.stream()
-                .map(Sale::getId)
-                .collect(Collectors.toList());
+        saleRepository.save(sale);
 
-        return AddSaleResponse
-                .builder()
-                .saleIds(saleIds)
+        return AddSaleResponse.builder()
+                .price(sale.getPrice())
+                .savedPrice(sale.getSavedMoney())
                 .build();
     }
 }
