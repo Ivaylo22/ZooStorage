@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tinqin.storage</groupId>
   <artifactId>storage</artifactId>
-  <version>0.2.9-SNAPSHOT</version>
+  <version>0.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <licenses>
     <license>
@@ -53,6 +53,12 @@
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-model-builder</artifactId>
       <version>3.6.3</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
