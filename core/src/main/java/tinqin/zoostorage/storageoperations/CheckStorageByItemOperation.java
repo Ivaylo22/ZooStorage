@@ -1,8 +1,7 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import tinqin.zoostorage.data.Storage;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItem;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemRequest;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemResponse;
@@ -12,7 +11,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class CheckStorageByItemImpl implements CheckStorageByItem {
+public class CheckStorageByItemOperation implements CheckStorageByItem {
     private final StorageRepository storageRepository;
 
     @Override

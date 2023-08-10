@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,15 +12,12 @@ import tinqin.zoostorage.model.exportitems.ExportRequest;
 import tinqin.zoostorage.repository.SaleRepository;
 import tinqin.zoostorage.repository.StorageRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class AddSaleImpl implements AddSale {
+public class AddSaleOperation implements AddSale {
     private final StorageRepository storageRepository;
     private final SaleRepository saleRepository;
     private final ExportItems exportItems;

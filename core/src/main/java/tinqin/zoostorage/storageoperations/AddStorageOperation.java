@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -8,14 +8,12 @@ import tinqin.zoostorage.model.addstorage.AddStorageRequest;
 import tinqin.zoostorage.model.addstorage.AddStorageResponse;
 import tinqin.zoostorage.repository.StorageRepository;
 
-import java.util.UUID;
-
 @Service
-public class AddStorageImpl implements AddStorage {
+public class AddStorageOperation implements AddStorage {
     private final StorageRepository storageRepository;
     private final ModelMapper modelMapper;
 
-    public AddStorageImpl(StorageRepository storageRepository, ModelMapper modelMapper) {
+    public AddStorageOperation(StorageRepository storageRepository, ModelMapper modelMapper) {
         this.storageRepository = storageRepository;
         this.modelMapper = modelMapper;
     }

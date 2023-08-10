@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class GetInfoByIdImpl implements GetInfoById {
+public class GetInfoByIdOperation implements GetInfoById {
     private final ZooStoreRestClient restClient;
     private final StorageRepository storageRepository;
 

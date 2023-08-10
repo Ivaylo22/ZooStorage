@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class ChangePriceImpl implements ChangePrice {
+public class ChangePriceOperation implements ChangePrice {
     private final StorageRepository storageRepository;
 
 

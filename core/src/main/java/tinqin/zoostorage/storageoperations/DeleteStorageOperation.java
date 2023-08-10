@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import tinqin.zoostorage.repository.StorageRepository;
 import java.util.UUID;
 
 @Service
-public class DeleteStorageImpl implements DeleteStorage {
+public class DeleteStorageOperation implements DeleteStorage {
     private final StorageRepository storageRepository;
     private final ModelMapper modelMapper;
 
-    public DeleteStorageImpl(StorageRepository storageRepository, ModelMapper modelMapper) {
+    public DeleteStorageOperation(StorageRepository storageRepository, ModelMapper modelMapper) {
         this.storageRepository = storageRepository;
         this.modelMapper = modelMapper;
     }

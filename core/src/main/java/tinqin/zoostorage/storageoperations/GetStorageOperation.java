@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -12,7 +12,7 @@ import tinqin.zoostore.exception.ResourceNotFoundException;
 
 @Service
 @RequiredArgsConstructor
-public class GetStorageImpl implements GetStorage {
+public class GetStorageOperation implements GetStorage {
     private final StorageRepository storageRepository;
     private final ModelMapper modelMapper;
 

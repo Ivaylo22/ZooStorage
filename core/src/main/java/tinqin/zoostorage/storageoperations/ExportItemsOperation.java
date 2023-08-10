@@ -1,4 +1,4 @@
-package tinqin.zoostorage.storageimpl;
+package tinqin.zoostorage.storageoperations;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import tinqin.zoostorage.repository.StorageRepository;
 import java.util.UUID;
 
 @Service
-public class ExportItemsImpl implements ExportItems {
+public class ExportItemsOperation implements ExportItems {
     private final StorageRepository storageRepository;
     private final ModelMapper modelMapper;
 
-    public ExportItemsImpl(StorageRepository storageRepository, ModelMapper modelMapper) {
+    public ExportItemsOperation(StorageRepository storageRepository, ModelMapper modelMapper) {
         this.storageRepository = storageRepository;
         this.modelMapper = modelMapper;
     }
