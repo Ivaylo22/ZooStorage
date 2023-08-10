@@ -28,6 +28,8 @@ public class GetInfoByIdImpl implements GetInfoById {
 
         return GetInfoByIdResponse
         .builder()
+        .id(storage.getId())
+        .itemId(itemId)
         .title(item.getTitle())
         .description(item.getDescription())
         .quantity(storage.getQuantity())
