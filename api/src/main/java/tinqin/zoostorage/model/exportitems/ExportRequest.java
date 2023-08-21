@@ -11,4 +11,5 @@ import tinqin.zoostorage.operations.OperationInput;
 public class ExportRequest implements OperationInput {
     private String itemId;
     private Integer quantity;
+    private String city;
 }

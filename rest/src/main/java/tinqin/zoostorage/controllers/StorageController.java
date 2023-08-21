@@ -3,7 +3,6 @@ package tinqin.zoostorage.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +18,8 @@ import tinqin.zoostorage.model.changeprice.ChangePriceResponse;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItem;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemRequest;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemResponse;
-import tinqin.zoostorage.model.deletestorage.DeleteRequest;
-import tinqin.zoostorage.model.deletestorage.DeleteResponse;
+import tinqin.zoostorage.model.deletestorage.DeleteStorageRequest;
+import tinqin.zoostorage.model.deletestorage.DeleteStorageResponse;
 import tinqin.zoostorage.model.deletestorage.DeleteStorage;
 import tinqin.zoostorage.model.exportitems.ExportItems;
 import tinqin.zoostorage.model.exportitems.ExportRequest;
@@ -158,8 +157,8 @@ public class StorageController {
 
     })
     @PostMapping("/deleteStorage")
-    public ResponseEntity<DeleteResponse> deleteStorage(@RequestBody DeleteRequest storageDto) {
-        DeleteResponse deletedStorage = deleteStorage.process(storageDto);
+    public ResponseEntity<DeleteStorageResponse> deleteStorage(@RequestBody DeleteStorageRequest storageDto) {
+        DeleteStorageResponse deletedStorage = deleteStorage.process(storageDto);
 
         return ResponseEntity.ok(deletedStorage);
     }

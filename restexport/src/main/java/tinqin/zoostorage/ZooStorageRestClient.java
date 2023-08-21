@@ -3,21 +3,17 @@ package tinqin.zoostorage;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import tinqin.zoostorage.model.addsale.AddSaleRequest;
 import tinqin.zoostorage.model.addsale.AddSaleResponse;
 import tinqin.zoostorage.model.addstorage.AddStorageRequest;
 import tinqin.zoostorage.model.addstorage.AddStorageResponse;
 import tinqin.zoostorage.model.changeprice.ChangePriceRequest;
 import tinqin.zoostorage.model.changeprice.ChangePriceResponse;
-import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemRequest;
 import tinqin.zoostorage.model.checkstoragebyitem.CheckStorageByItemResponse;
-import tinqin.zoostorage.model.deletestorage.DeleteRequest;
-import tinqin.zoostorage.model.deletestorage.DeleteResponse;
+import tinqin.zoostorage.model.deletestorage.DeleteStorageRequest;
+import tinqin.zoostorage.model.deletestorage.DeleteStorageResponse;
 import tinqin.zoostorage.model.exportitems.ExportRequest;
 import tinqin.zoostorage.model.exportitems.ExportResponse;
-import tinqin.zoostorage.model.getinfobyid.GetInfoByIdRequest;
 import tinqin.zoostorage.model.getinfobyid.GetInfoByIdResponse;
 import tinqin.zoostorage.model.getstorage.GetStorageRequest;
 import tinqin.zoostorage.model.getstorage.GetStorageResponse;
@@ -53,7 +49,7 @@ public interface ZooStorageRestClient {
     ExportResponse exportFromStorage(@Param ExportRequest exportDto);
 
     @RequestLine("POST /storage/deleteStorage")
-    DeleteResponse deleteStorage(@Param DeleteRequest storageDto);
+    DeleteStorageResponse deleteStorage(@Param DeleteStorageRequest storageDto);
 
     @RequestLine("PUT /storage/changePrice")
     ChangePriceResponse changePrice(@Param ChangePriceRequest priceDto);

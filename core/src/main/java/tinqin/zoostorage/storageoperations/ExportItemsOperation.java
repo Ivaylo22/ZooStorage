@@ -23,9 +23,10 @@ public class ExportItemsOperation implements ExportItems {
 
     @Override
     public ExportResponse process(ExportRequest input) {
-        Storage storage = storageRepository.getStorageByItemId(UUID.fromString(input.getItemId()));
+        Storage storage = storageRepository
+                .getStorageByItemIdAAndCity(UUID.fromString(input.getItemId()), input.getCity());
         if(storage.getQuantity() - input.getQuantity() < 0) {
-             throw new IllegalArgumentException("Quantity cant be less than 0");
+             storage.setQuantity(0);
         }
         storage.setQuantity(storage.getQuantity() - input.getQuantity());
 

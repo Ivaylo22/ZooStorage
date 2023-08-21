@@ -8,6 +8,6 @@ import tinqin.zoostorage.operations.OperationResult;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeleteResponse implements OperationResult {
+public class DeleteStorageResponse implements OperationResult {
     private String storageId;
 }

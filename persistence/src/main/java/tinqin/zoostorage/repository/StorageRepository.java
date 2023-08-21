@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Repository
 public interface StorageRepository  extends JpaRepository<Storage, UUID> {
-    Storage getStorageByItemId(UUID itemId);
+    Storage getStorageByItemIdAAndCity(UUID itemId, String city);
     boolean existsByItemId(UUID itemId);
     Storage findByItemId(UUID itemId);
     Storage getStorageById(UUID storageId);
