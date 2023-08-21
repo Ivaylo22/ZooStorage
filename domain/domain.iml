@@ -43,9 +43,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:restexport:0.2.4-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:api:0.2.4-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:persistence:0.2.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:restexport:0.3.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:api:0.3.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:persistence:0.3.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:5.0.1" level="project" />
@@ -67,14 +67,13 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:6.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:6.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:6.0.10" level="project" />
-    <orderEntry type="library" name="Maven: com.mysql:mysql-connector-j:8.0.33" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:8.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.5.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.2" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:rest:0.2.4-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:core:0.2.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:rest:0.3.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:core:0.3.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:6.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:6.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:3.1.1" level="project" />
@@ -175,5 +174,6 @@
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-builder-support:3.6.3" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.sisu:org.eclipse.sisu.inject:0.3.4" level="project" />
+    <orderEntry type="library" name="Maven: com.mysql:mysql-connector-j:8.0.33" level="project" />
   </component>
 </module>

@@ -25,4 +25,5 @@ public class Storage {
     private UUID itemId;
     private Integer quantity;
     private Double price;
+    private String city;
 }

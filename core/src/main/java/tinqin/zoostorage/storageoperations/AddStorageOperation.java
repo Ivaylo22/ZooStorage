@@ -22,7 +22,8 @@ public class AddStorageOperation implements AddStorage {
     @Override
     public AddStorageResponse process(AddStorageRequest storageDto) {
         Storage storage = modelMapper.map(storageDto, Storage.class);
-        if(storageRepository.existsByItemId(storageDto.getItemId())) {
+
+        if(storageRepository.existsByItemId(storageDto.getItemId()) && storageRepository.existsByCity(storageDto.getCity())) {
             Storage currentStorage = storageRepository.getStorageByItemId(storageDto.getItemId());
             Integer currentQuantity = currentStorage.getQuantity();
             currentStorage.setQuantity(currentQuantity + storageDto.getQuantity());

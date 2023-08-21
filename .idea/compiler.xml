@@ -3,9 +3,9 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for tinqin-storage" enabled="true">
-        <sourceOutputDir name="../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rest" />
         <module name="core" />
@@ -36,7 +36,7 @@
       <module name="persistence" options="-parameters" />
       <module name="rest" options="-parameters" />
       <module name="restexport" options="-parameters" />
-      <module name="storage" options="-parameters" />
+      <module name="storage" options="" />
     </option>
   </component>
 </project>

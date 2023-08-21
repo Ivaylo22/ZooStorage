@@ -15,4 +15,5 @@ public class AddStorageResponse implements OperationResult {
     private UUID itemId;
     private Integer quantity;
     private Double price;
+    private String city;
 }

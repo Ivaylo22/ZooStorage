@@ -57,7 +57,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>tinqin.storage.rest.TinqinStorageApplication.class</mainClass>
+                    <mainClass>tinqin.zoostorage.ZooStorageRestClient.class</mainClass>
                 </configuration>
                 <executions>
                     <execution>

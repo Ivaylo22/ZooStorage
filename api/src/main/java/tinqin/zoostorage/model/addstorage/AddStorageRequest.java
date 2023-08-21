@@ -15,4 +15,5 @@ public class AddStorageRequest implements OperationInput {
     private UUID itemId;
     private Integer quantity;
     private Double price;
+    private String city;
 }
