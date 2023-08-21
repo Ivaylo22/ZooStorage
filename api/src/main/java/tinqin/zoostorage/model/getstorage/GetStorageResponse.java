@@ -15,4 +15,7 @@ import java.util.UUID;
 public class GetStorageResponse implements OperationResult {
     private UUID storageId;
     private UUID itemId;
+    private Double price;
+    private Integer quantity;
+    private String city;
 }

@@ -24,7 +24,7 @@ public class AddStorageOperation implements AddStorage {
         Storage storage = modelMapper.map(storageDto, Storage.class);
 
         if(storageRepository.existsByItemId(storageDto.getItemId()) && storageRepository.existsByCity(storageDto.getCity())) {
-            Storage currentStorage = storageRepository.getStorageByItemId(storageDto.getItemId());
+            Storage currentStorage = storageRepository.getStorageByItemIdAndCity(storageDto.getItemId(), storageDto.getCity());
             Integer currentQuantity = currentStorage.getQuantity();
             currentStorage.setQuantity(currentQuantity + storageDto.getQuantity());
             currentStorage.setPrice(storageDto.getPrice());

@@ -26,6 +26,9 @@ public class GetStorageOperation implements GetStorage {
                 .builder()
                 .itemId(storage.getItemId())
                 .storageId(storage.getId())
+                .price(storage.getPrice())
+                .quantity(storage.getQuantity())
+                .city(storage.getCity())
                 .build();
     }
 }

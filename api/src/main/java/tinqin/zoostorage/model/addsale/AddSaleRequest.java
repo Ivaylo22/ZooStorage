@@ -17,4 +17,5 @@ public class AddSaleRequest implements OperationInput {
     private Map<UUID, Integer> items;
     private Double price;
     private Double savedMoney;
+    private String city;
 }

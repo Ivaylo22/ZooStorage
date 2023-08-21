@@ -22,7 +22,7 @@ public class ImportItemsOperation implements ImportItems {
 
     @Override
     public ImportResponse process(ImportRequest input) {
-        Storage storage = storageRepository.getStorageByItemId(UUID.fromString(input.getItemId()));
+        Storage storage = storageRepository.getStorageByItemIdAndCity(UUID.fromString(input.getItemId()), input.getCity());
         storage.setQuantity(storage.getQuantity() + input.getQuantity());
 
         storageRepository.save(storage);

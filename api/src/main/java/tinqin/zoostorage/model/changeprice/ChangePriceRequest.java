@@ -11,4 +11,5 @@ import tinqin.zoostorage.operations.OperationInput;
 public class ChangePriceRequest implements OperationInput {
     private String itemId;
     private Double price;
+    private String city;
 }

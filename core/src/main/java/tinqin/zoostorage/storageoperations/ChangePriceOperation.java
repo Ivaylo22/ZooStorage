@@ -18,7 +18,7 @@ public class ChangePriceOperation implements ChangePrice {
 
     @Override
     public ChangePriceResponse process(ChangePriceRequest input) {
-        Storage storage = storageRepository.getStorageByItemId(UUID.fromString(input.getItemId()));
+        Storage storage = storageRepository.getStorageByItemIdAndCity(UUID.fromString(input.getItemId()), input.getCity());
         storage.setPrice(input.getPrice());
 
         storageRepository.save(storage);
