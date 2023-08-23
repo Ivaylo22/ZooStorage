@@ -25,33 +25,14 @@ import java.util.UUID;
 public class AddSaleOperation implements AddSale {
     private final StorageRepository storageRepository;
     private final SaleRepository saleRepository;
-    private final ExportItems exportItems;
-    private final GetInfoById getInfoById;
 
     @Override
     public AddSaleResponse process(AddSaleRequest input) {
         Integer userId = input.getUserId();
-        Map<UUID, Integer> items = input.getItems();
-        double actualPrice = items.entrySet().stream()
-                .mapToDouble(entry -> {
-                    UUID itemId = entry.getKey();
-                    Integer quantity = entry.getValue();
-                    Storage storage = storageRepository.getStorageByItemIdAndCity(itemId, input.getCity());
-                    ExportRequest exportRequest = new ExportRequest(itemId.toString(), quantity, input.getCity());
-                    ExportResponse response = new ExportResponse();
-
-                    try {
-                        response = exportItems.process(exportRequest);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return response.getFinalPrice();
-                })
-                .sum();
 
         Sale sale = Sale.builder()
                 .userId(userId)
-                .price(actualPrice - input.getSavedMoney())
+                .price(input.getPrice() - input.getSavedMoney())
                 .savedMoney(input.getSavedMoney())
                 .build();
 

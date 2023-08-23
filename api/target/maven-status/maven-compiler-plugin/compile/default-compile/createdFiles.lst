@@ -1,6 +1,7 @@
 tinqin\zoostorage\model\addstorage\AddStorageResponse.class
 tinqin\zoostorage\model\changeprice\ChangePrice.class
 tinqin\zoostorage\model\addsale\AddSaleRequest$AddSaleRequestBuilder.class
+tinqin\zoostorage\model\exportitems\ExportRequest$ExportRequestBuilder.class
 tinqin\zoostorage\model\checkstoragebyitem\CheckStorageByItemResponse.class
 tinqin\zoostorage\model\addsale\AddSaleResponse$AddSaleResponseBuilder.class
 tinqin\zoostorage\model\getstorage\GetStorageRequest$GetStorageRequestBuilder.class
@@ -25,6 +26,7 @@ tinqin\zoostorage\model\addsale\AddSale.class
 tinqin\zoostorage\model\deletestorage\DeleteStorageRequest.class
 tinqin\zoostorage\model\changeprice\ChangePriceResponse$ChangePriceResponseBuilder.class
 tinqin\zoostorage\model\deletestorage\DeleteStorage.class
+tinqin\zoostorage\model\exportitems\ExportResponse$ExportResponseBuilder.class
 tinqin\zoostorage\model\getstorage\GetStorageResponse$GetStorageResponseBuilder.class
 tinqin\zoostorage\model\addstorage\AddStorage.class
 tinqin\zoostorage\model\importitems\ImportRequest.class
