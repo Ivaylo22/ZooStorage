@@ -10,6 +10,7 @@ import tinqin.zoostorage.model.addsale.AddSaleRequest;
 import tinqin.zoostorage.model.addsale.AddSaleResponse;
 import tinqin.zoostorage.model.exportitems.ExportItems;
 import tinqin.zoostorage.model.exportitems.ExportRequest;
+import tinqin.zoostorage.model.exportitems.ExportResponse;
 import tinqin.zoostorage.model.getinfobyid.GetInfoById;
 import tinqin.zoostorage.model.getinfobyid.GetInfoByIdRequest;
 import tinqin.zoostorage.model.getinfobyid.GetInfoByIdResponse;
@@ -37,13 +38,14 @@ public class AddSaleOperation implements AddSale {
                     Integer quantity = entry.getValue();
                     Storage storage = storageRepository.getStorageByItemIdAndCity(itemId, input.getCity());
                     ExportRequest exportRequest = new ExportRequest(itemId.toString(), quantity, input.getCity());
+                    ExportResponse response = new ExportResponse();
 
                     try {
-                        exportItems.process(exportRequest);
+                        response = exportItems.process(exportRequest);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return storage.getPrice() * quantity;
+                    return response.getFinalPrice();
                 })
                 .sum();
 

@@ -53,6 +53,7 @@ public class ExportItemsOperation implements ExportItems {
         double cityLat = cityCordinates[0];
         double cityLng = cityCordinates[1];
         Integer inputQuantity = input.getQuantity();
+        Double finalPrice = 0.0;
 
         List<Storage> storages = storageRepository.findAllByItemId(UUID.fromString(input.getItemId()));
 
@@ -60,17 +61,22 @@ public class ExportItemsOperation implements ExportItems {
 
         for (Storage storage: storages) {
             if (inputQuantity >= storage.getQuantity()) {
+                finalPrice += storage.getQuantity() * storage.getPrice();
                 inputQuantity -= storage.getQuantity();
                 storage.setQuantity(0);
                 storageRepository.save(storage);
             } else {
+                finalPrice += storage.getQuantity() * storage.getPrice();
                 storage.setQuantity(storage.getQuantity() - inputQuantity);
                 storageRepository.save(storage);
                 break;
             }
         }
 
-        return new ExportResponse(input.getItemId());
+        return ExportResponse.builder()
+                .finalPrice(finalPrice)
+                .itemId(input.getItemId())
+                .build();
     }
 
     private void sortStorageByProximity(List<Storage> storageList, double cityLat, double cityLng, String apikey) {
