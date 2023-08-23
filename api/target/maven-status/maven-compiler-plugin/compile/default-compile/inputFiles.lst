@@ -7,7 +7,6 @@ D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoos
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\addstorage\AddStorageResponse.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\addstorage\AddStorageRequest.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\checkstoragebyitem\CheckStorageByItemResponse.java
-D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\deletestorage\DeleteResponse.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\exportitems\ExportRequest.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\getstorage\GetStorage.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\addsale\AddSale.java
@@ -16,11 +15,12 @@ D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoos
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\exportitems\ExportItems.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\deletestorage\DeleteStorage.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\importitems\ImportRequest.java
-D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\deletestorage\DeleteRequest.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\checkstoragebyitem\CheckStorageByItem.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\exportitems\ExportResponse.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\operations\OperationResult.java
+D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\deletestorage\DeleteStorageRequest.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\getinfobyid\GetInfoByIdResponse.java
+D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\deletestorage\DeleteStorageResponse.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\importitems\ImportResponse.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\addsale\AddSaleRequest.java
 D:\Ivaylo\Programming\TINQIN\ZooStorage\ZooStorage\api\src\main\java\tinqin\zoostorage\model\addsale\AddSaleResponse.java

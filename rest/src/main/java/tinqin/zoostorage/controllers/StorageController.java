@@ -57,7 +57,7 @@ public class StorageController {
             @ApiResponse(responseCode = "403", description = "Quantity cant be less than 0")
     })
     @PostMapping("/addSale")
-    public ResponseEntity<AddSaleResponse> addSale(@RequestBody AddSaleRequest request) {
+    public ResponseEntity<AddSaleResponse> addSale(@RequestBody AddSaleRequest request) throws Exception {
         AddSaleResponse response = addSale.process(request);
         return ResponseEntity.ok(response);
     }
@@ -67,7 +67,7 @@ public class StorageController {
             @ApiResponse(responseCode = "200", description = "True/false")
     })
     @GetMapping("checkStorageByItem/{itemId}")
-    public ResponseEntity<CheckStorageByItemResponse> checkStorageByItemId(@PathVariable UUID itemId) {
+    public ResponseEntity<CheckStorageByItemResponse> checkStorageByItemId(@PathVariable UUID itemId) throws Exception {
         CheckStorageByItemRequest request = new CheckStorageByItemRequest(itemId);
         CheckStorageByItemResponse response = checkStorageByItem.process(request);
 
@@ -80,7 +80,7 @@ public class StorageController {
             @ApiResponse(responseCode = "401", description = "Item/Storage not found"),
     })
     @GetMapping("/getInfo/{itemId}")
-    public ResponseEntity<GetInfoByIdResponse> getInfoByItemId(@PathVariable UUID itemId) {
+    public ResponseEntity<GetInfoByIdResponse> getInfoByItemId(@PathVariable UUID itemId) throws Exception {
         GetInfoByIdRequest request = new GetInfoByIdRequest(itemId);
         GetInfoByIdResponse response = getInfoById.process(request);
 
@@ -93,7 +93,7 @@ public class StorageController {
             @ApiResponse(responseCode = "401", description = "Storage not found"),
     })
     @PostMapping("/getStorage")
-    public ResponseEntity<GetStorageResponse> getStorage(@RequestBody GetStorageRequest request) {
+    public ResponseEntity<GetStorageResponse> getStorage(@RequestBody GetStorageRequest request) throws Exception {
         GetStorageResponse response = getStorage.process(request);
 
         return ResponseEntity.ok(response);
@@ -105,7 +105,7 @@ public class StorageController {
             @ApiResponse(responseCode = "401", description = "Item not found"),
     })
     @GetMapping("/quantityById/{itemId}")
-    public ResponseEntity<GetInfoByIdResponse> getQuantity(@PathVariable UUID itemId) {
+    public ResponseEntity<GetInfoByIdResponse> getQuantity(@PathVariable UUID itemId) throws Exception {
         GetInfoByIdRequest request = new GetInfoByIdRequest();
         request.setItemId(itemId);
         GetInfoByIdResponse response = getQuantity.process(request);
@@ -118,7 +118,7 @@ public class StorageController {
             @ApiResponse(responseCode = "200", description = "Successfully added")
     })
     @PostMapping("/addStorage")
-    public ResponseEntity<AddStorageResponse> addStorage(@RequestBody AddStorageRequest storageDto) {
+    public ResponseEntity<AddStorageResponse> addStorage(@RequestBody AddStorageRequest storageDto) throws Exception {
         AddStorageResponse addedStorage = addStorage.process(storageDto);
 
         return ResponseEntity.ok(addedStorage);
@@ -131,7 +131,7 @@ public class StorageController {
 
     })
     @PutMapping("/import")
-    public ResponseEntity<ImportResponse> importInStorage(@RequestBody ImportRequest importDto) {
+    public ResponseEntity<ImportResponse> importInStorage(@RequestBody ImportRequest importDto) throws Exception {
         ImportResponse importResponse = importItems.process(importDto);
 
         return ResponseEntity.ok(importResponse);
@@ -144,7 +144,7 @@ public class StorageController {
 
     })
     @PutMapping("/export")
-    public ResponseEntity<ExportResponse> exportFromStorage(@RequestBody ExportRequest exportDto) {
+    public ResponseEntity<ExportResponse> exportFromStorage(@RequestBody ExportRequest exportDto) throws Exception {
         ExportResponse exportResponse = exportItems.process(exportDto);
 
         return ResponseEntity.ok(exportResponse);
@@ -157,7 +157,7 @@ public class StorageController {
 
     })
     @PostMapping("/deleteStorage")
-    public ResponseEntity<DeleteStorageResponse> deleteStorage(@RequestBody DeleteStorageRequest storageDto) {
+    public ResponseEntity<DeleteStorageResponse> deleteStorage(@RequestBody DeleteStorageRequest storageDto) throws Exception {
         DeleteStorageResponse deletedStorage = deleteStorage.process(storageDto);
 
         return ResponseEntity.ok(deletedStorage);
@@ -170,7 +170,7 @@ public class StorageController {
 
     })
     @PutMapping("/changePrice")
-    public ResponseEntity<ChangePriceResponse> changePrice(@RequestBody ChangePriceRequest priceDto) {
+    public ResponseEntity<ChangePriceResponse> changePrice(@RequestBody ChangePriceRequest priceDto) throws Exception {
         ChangePriceResponse changedPrize = changePrice.process(priceDto);
 
         return ResponseEntity.ok(changedPrize);

@@ -1,11 +1,13 @@
 tinqin\zoostorage\exceptions\ResourceNotFoundException.class
 tinqin\zoostorage\storageoperations\ImportItemsOperation.class
 tinqin\zoostorage\exceptions\GlobalExceptionHandler.class
-tinqin\zoostorage\storageoperations\DeleteStorageOperation.class
 tinqin\zoostorage\storageoperations\ExportItemsOperation.class
 tinqin\zoostorage\storageoperations\AddStorageOperation.class
-tinqin\zoostorage\storageoperations\CheckStorageByItemOperation.class
-tinqin\zoostorage\storageoperations\GetInfoByIdOperation.class
 tinqin\zoostorage\storageoperations\GetStorageOperation.class
 tinqin\zoostorage\storageoperations\ChangePriceOperation.class
 tinqin\zoostorage\storageoperations\AddSaleOperation.class
+tinqin\zoostorage\exceptions\NotEnoughQuantityException.class
+tinqin\zoostorage\storageoperations\DeleteStorageOperation.class
+tinqin\zoostorage\exceptions\BadRequestException.class
+tinqin\zoostorage\storageoperations\CheckStorageByItemOperation.class
+tinqin\zoostorage\storageoperations\GetInfoByIdOperation.class

@@ -9,10 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="rest" />
         <module name="core" />
-        <module name="persistence" />
-        <module name="api" />
-        <module name="domain" />
         <module name="restexport" />
+      </profile>
+      <profile name="Annotation profile for tinqin-storage" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="persistence" />
+        <module name="domain" />
+        <module name="api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

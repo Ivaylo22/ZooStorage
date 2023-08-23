@@ -9,7 +9,5 @@ import tinqin.zoostorage.operations.OperationResult;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExportResponse implements OperationResult {
-    private String storageId;
     private String itemId;
-    private Integer quantity;
 }
