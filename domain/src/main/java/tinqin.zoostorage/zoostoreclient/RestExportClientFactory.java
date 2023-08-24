@@ -5,6 +5,7 @@ import feign.Feign;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tinqin.zoostore.ZooStoreRestClient;
@@ -12,6 +13,9 @@ import tinqin.zoostore.ZooStoreRestClient;
 @Configuration
 @RequiredArgsConstructor
 public class RestExportClientFactory {
+    @Value("${zoostore.url}")
+    private String zoostoreUrl;
+
     @Bean
     public ZooStoreRestClient getMyRestExportClient() {
         final ObjectMapper objectMapper = new ObjectMapper();
@@ -19,6 +23,6 @@ public class RestExportClientFactory {
         return Feign.builder()
                 .encoder(new JacksonEncoder(objectMapper))
                 .decoder(new JacksonDecoder(objectMapper))
-                .target(ZooStoreRestClient.class, "http://localhost:8080");
+                .target(ZooStoreRestClient.class, zoostoreUrl);
     }
 }

@@ -1,6 +1,7 @@
 package tinqin.zoostorage.storageoperations;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.mutable.MutableInt;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.modelmapper.ModelMapper;
@@ -29,7 +30,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ExportItemsOperation implements ExportItems {
     private final StorageRepository storageRepository;
-    private final ModelMapper modelMapper;
     private final GetInfoById getInfoById;
 
     @Value("${location.apikey}")
@@ -47,29 +47,26 @@ public class ExportItemsOperation implements ExportItems {
             throw new NotEnoughQuantityException(fullInfo.getTitle());
         }
 
-        double[] cityCordinates = fetchCoordinates(apikey, input.getCity());
-        double cityLat = cityCordinates[0];
-        double cityLng = cityCordinates[1];
-        Integer inputQuantity = input.getQuantity();
-        Double finalPrice = 0.0;
+        Double[] cityCordinates = fetchCoordinates(apikey, input.getCity());
+        Double cityLat = cityCordinates[0];
+        Double cityLng = cityCordinates[1];
+        MutableInt inputQuantity = new MutableInt(input.getQuantity());
 
         List<Storage> storages = storageRepository.findAllByItemId(UUID.fromString(input.getItemId()));
-
         sortStorageByDistanceAscending(storages, cityLat, cityLng, apikey);
 
-        for (Storage storage: storages) {
-            if (inputQuantity >= storage.getQuantity()) {
-                finalPrice += storage.getQuantity() * storage.getPrice();
-                inputQuantity -= storage.getQuantity();
-                storage.setQuantity(0);
-                storageRepository.save(storage);
-            } else {
-                finalPrice += storage.getQuantity() * storage.getPrice();
-                storage.setQuantity(storage.getQuantity() - inputQuantity);
-                storageRepository.save(storage);
-                break;
-            }
-        }
+        Double finalPrice = storages.stream()
+                .takeWhile(storage -> inputQuantity.getValue() > 0)
+                .mapToDouble(storage -> {
+                    Integer quantityToProcess = Math.min(inputQuantity.getValue(), storage.getQuantity());
+                    Double price = quantityToProcess * storage.getPrice();
+
+                    storage.setQuantity(storage.getQuantity() - quantityToProcess);
+                    inputQuantity.setValue(inputQuantity.getValue() - quantityToProcess);
+                    storageRepository.save(storage);
+
+                    return price;
+                }).sum();
 
         return ExportResponse.builder()
                 .finalPrice(finalPrice)
@@ -77,12 +74,12 @@ public class ExportItemsOperation implements ExportItems {
                 .build();
     }
 
-    private void sortStorageByDistanceAscending(List<Storage> storageList, double cityLat, double cityLng, String apikey) {
+    private void sortStorageByDistanceAscending(List<Storage> storageList, Double cityLat, Double cityLng, String apikey) {
         storageList.sort(Comparator.comparingDouble(storage -> {
             try {
-                double[] storageCoordinates = fetchCoordinates(apikey, storage.getCity());
-                double storageLat = storageCoordinates[0];
-                double storageLng = storageCoordinates[1];
+                Double[] storageCoordinates = fetchCoordinates(apikey, storage.getCity());
+                Double storageLat = storageCoordinates[0];
+                Double storageLng = storageCoordinates[1];
                 return findDistanceByCoordinates(cityLat, cityLng, storageLat, storageLng);
             } catch (Exception e) {
                 return Double.MAX_VALUE;
@@ -90,7 +87,7 @@ public class ExportItemsOperation implements ExportItems {
         }));
     }
 
-    private double[] fetchCoordinates(String apiKey, String location) throws Exception {
+    private Double[] fetchCoordinates(String apiKey, String location) throws Exception {
         String apiUrl = "https://www.mapquestapi.com/geocoding/v1/address"
                 + "?key=" + apiKey
                 + "&location=" + location;
@@ -99,7 +96,7 @@ public class ExportItemsOperation implements ExportItems {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 
-        int responseCode = connection.getResponseCode();
+        Integer responseCode = connection.getResponseCode();
 
         if(responseCode != HttpURLConnection.HTTP_OK) {
             throw new BadRequestException();
@@ -120,25 +117,25 @@ public class ExportItemsOperation implements ExportItems {
                 .getJSONArray("locations");
 
         JSONObject firstLocation = locations.getJSONObject(0);
-        double lat = firstLocation.getJSONObject("latLng").getDouble("lat");
-        double lng = firstLocation.getJSONObject("latLng").getDouble("lng");
+        Double lat = firstLocation.getJSONObject("latLng").getDouble("lat");
+        Double lng = firstLocation.getJSONObject("latLng").getDouble("lng");
 
-        return new double[]{lat, lng};
+        return new Double[]{lat, lng};
     }
 
-    private double findDistanceByCoordinates(double lat1, double lng1, double lat2, double lng2) {
-        double radius = 6371.0;
+    private Double findDistanceByCoordinates(Double lat1, Double lng1, Double lat2, Double lng2) {
+        Double radius = 6371.0;
 
-        double lat1Rad = Math.toRadians(lat1);
-        double lon1Rad = Math.toRadians(lng1);
-        double lat2Rad = Math.toRadians(lat2);
-        double lon2Rad = Math.toRadians(lng2);
+        Double lat1Rad = Math.toRadians(lat1);
+        Double lon1Rad = Math.toRadians(lng1);
+        Double lat2Rad = Math.toRadians(lat2);
+        Double lon2Rad = Math.toRadians(lng2);
 
-        double dlat = lat2Rad - lat1Rad;
-        double dlon = lon2Rad - lon1Rad;
+        Double dlat = lat2Rad - lat1Rad;
+        Double dlon = lon2Rad - lon1Rad;
 
-        double a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(lat1Rad) * Math.cos(lat2Rad) * Math.pow(Math.sin(dlon / 2), 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        Double a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(lat1Rad) * Math.cos(lat2Rad) * Math.pow(Math.sin(dlon / 2), 2);
+        Double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         return radius * c;
     }
