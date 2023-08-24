@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import tinqin.zoostorage.exceptions.BadRequestException;
@@ -22,7 +21,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -57,7 +55,7 @@ public class ExportItemsOperation implements ExportItems {
 
         List<Storage> storages = storageRepository.findAllByItemId(UUID.fromString(input.getItemId()));
 
-        sortStorageByProximity(storages, cityLat, cityLng, apikey);
+        sortStorageByDistanceAscending(storages, cityLat, cityLng, apikey);
 
         for (Storage storage: storages) {
             if (inputQuantity >= storage.getQuantity()) {
@@ -79,13 +77,13 @@ public class ExportItemsOperation implements ExportItems {
                 .build();
     }
 
-    private void sortStorageByProximity(List<Storage> storageList, double cityLat, double cityLng, String apikey) {
+    private void sortStorageByDistanceAscending(List<Storage> storageList, double cityLat, double cityLng, String apikey) {
         storageList.sort(Comparator.comparingDouble(storage -> {
             try {
                 double[] storageCoordinates = fetchCoordinates(apikey, storage.getCity());
                 double storageLat = storageCoordinates[0];
                 double storageLng = storageCoordinates[1];
-                return haversineDistance(cityLat, cityLng, storageLat, storageLng);
+                return findDistanceByCoordinates(cityLat, cityLng, storageLat, storageLng);
             } catch (Exception e) {
                 return Double.MAX_VALUE;
             }
@@ -128,7 +126,7 @@ public class ExportItemsOperation implements ExportItems {
         return new double[]{lat, lng};
     }
 
-    private double haversineDistance(double lat1, double lng1, double lat2, double lng2) {
+    private double findDistanceByCoordinates(double lat1, double lng1, double lat2, double lng2) {
         double radius = 6371.0;
 
         double lat1Rad = Math.toRadians(lat1);
