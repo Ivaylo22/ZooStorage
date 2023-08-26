@@ -45,12 +45,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="api" />
+    <orderEntry type="library" name="Maven: tinqin.storage:api:0.3.4-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:8.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.5.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
-    <orderEntry type="module" module-name="persistence" />
+    <orderEntry type="library" name="Maven: tinqin.storage:persistence:0.3.4-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.19" level="project" />
@@ -74,13 +74,13 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:6.0.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:6.0.10" level="project" />
     <orderEntry type="library" name="Maven: jakarta.persistence:jakarta.persistence-api:3.1.0" level="project" />
-    <orderEntry type="module" module-name="core" />
-    <orderEntry type="module" module-name="domain" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:restexport:0.3.2-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:api:0.3.2-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:persistence:0.3.2-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:rest:0.3.2-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: tinqin.zoostore:core:0.3.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.storage:core:0.3.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.storage:domain:0.3.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:restexport:0.3.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:api:0.3.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:persistence:0.3.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:rest:0.3.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: tinqin.zoostore:core:0.3.4-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20210307" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:3.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:3.1.1" level="project" />
